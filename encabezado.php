@@ -9,9 +9,10 @@
 	<link rel="stylesheet" href="/G2Unaf/css/fontawesome-all.min.css">
 	<link rel="stylesheet" href="/G2Unaf/css/bootstrap.css">
 	<link rel="stylesheet" href="/G2Unaf/css/estilo.css">
+	<script src="/G2Unaf/js/validarCategoria.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<nav class="navbar navbar-inverse navbar-fixed-top" style="background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);">
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/G2Unaf/Inicio.php">G2 Accesorios</a>
@@ -27,5 +28,6 @@
 			</div>
 		</div>
 	</nav>
+
 	<div class="container">
 		<div class="row">

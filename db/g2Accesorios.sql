@@ -28,9 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `Barrios` (
-  `id_barrios` int(11) NOT NULL,
+  `id_barrios` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(50) DEFAULT NULL,
-  `id_localidad` int(11) DEFAULT NULL
+  `id_localidad` int(11) DEFAULT NULL,
+	PRIMARY KEY (`id_barrios`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -40,9 +41,10 @@ CREATE TABLE `Barrios` (
 --
 
 CREATE TABLE `Cliente` (
-  `id_cliente` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
   `fecha_alta` date DEFAULT NULL,
-  `id_persona` int(11) DEFAULT NULL
+  `id_persona` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_cliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -52,11 +54,12 @@ CREATE TABLE `Cliente` (
 --
 
 CREATE TABLE `Compra` (
-  `id_compra` int(11) NOT NULL,
+  `id_compra` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` date DEFAULT NULL,
   `id_empleado` int(11) DEFAULT NULL,
   `id_proveedor` int(11) DEFAULT NULL,
-  `id_estado` int(11) DEFAULT NULL
+  `id_estado` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_compra`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -66,10 +69,11 @@ CREATE TABLE `Compra` (
 --
 
 CREATE TABLE `Contactos` (
-  `id_contactos` int(11) NOT NULL,
+  `id_contactos` int(11) NOT NULL AUTO_INCREMENT,
   `valor` varchar(100) DEFAULT NULL,
   `id_tipo_contacto` int(11) DEFAULT NULL,
-  `id_persona` int(11) DEFAULT NULL
+  `id_persona` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_contactos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -79,11 +83,12 @@ CREATE TABLE `Contactos` (
 --
 
 CREATE TABLE `Detalle_compra` (
-  `id_detalle_compra` int(11) NOT NULL,
+  `id_detalle_compra` int(11) NOT NULL AUTO_INCREMENT,
   `cantidad` int(11) DEFAULT NULL,
   `precio_compra` float(8,0) DEFAULT NULL,
   `id_compra` int(11) DEFAULT NULL,
-  `id_producto` int(11) DEFAULT NULL
+  `id_producto` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_detalle_compra`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -93,9 +98,10 @@ CREATE TABLE `Detalle_compra` (
 --
 
 CREATE TABLE `Detalle_Reparacion` (
-  `id_detalle_reparacion` int(11) NOT NULL,
+  `id_detalle_reparacion` int(11) NOT NULL AUTO_INCREMENT,
   `id_factura` int(11) DEFAULT NULL,
-  `id_reparacion` int(11) DEFAULT NULL
+  `id_reparacion` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_detalle_reparacion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -105,11 +111,12 @@ CREATE TABLE `Detalle_Reparacion` (
 --
 
 CREATE TABLE `Detalle_ventas` (
-  `id_detalle_venta` int(11) NOT NULL,
+  `id_detalle_venta` int(11) NOT NULL AUTO_INCREMENT,
   `cantidad` int(11) DEFAULT NULL,
   `precio_venta` float(8,0) DEFAULT NULL,
   `id_venta` int(11) DEFAULT NULL,
-  `id_producto` int(11) DEFAULT NULL
+  `id_producto` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_detalle_venta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -119,9 +126,10 @@ CREATE TABLE `Detalle_ventas` (
 --
 
 CREATE TABLE `Direccion` (
-  `id_direccion` int(11) NOT NULL,
+  `id_direccion` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(100) DEFAULT NULL,
-  `id_proveedor` int(11) DEFAULT NULL
+  `id_proveedor` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_direccion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -131,10 +139,11 @@ CREATE TABLE `Direccion` (
 --
 
 CREATE TABLE `Dispositivo_imagen` (
-  `id_dispositivo_imagen` int(11) NOT NULL,
+  `id_dispositivo_imagen` int(11) NOT NULL AUTO_INCREMENT,
   `imagen` varchar(100) DEFAULT NULL,
   `descripcion` varchar(100) DEFAULT NULL,
-  `id_reparacion` int(11) NOT NULL
+  `id_reparacion` int(11) NOT NULL,
+  PRIMARY KEY (`id_dispositivo_imagen`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -144,7 +153,7 @@ CREATE TABLE `Dispositivo_imagen` (
 --
 
 CREATE TABLE `Domicilios` (
-  `id_domicilio` int(11) NOT NULL,
+  `id_domicilio` int(11) NOT NULL AUTO_INCREMENT,
   `mz` varchar(10) DEFAULT NULL,
   `casa` varchar(10) DEFAULT NULL,
   `calle` varchar(100) DEFAULT NULL,
@@ -152,7 +161,8 @@ CREATE TABLE `Domicilios` (
   `departamento` varchar(5) DEFAULT NULL,
   `piso` varchar(5) DEFAULT NULL,
   `descripcion` varchar(150) DEFAULT NULL,
-  `id_barrios` int(11) DEFAULT NULL
+  `id_barrios` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_domicilio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -162,11 +172,12 @@ CREATE TABLE `Domicilios` (
 --
 
 CREATE TABLE `Empleado` (
-  `id_empleado` int(11) NOT NULL,
+  `id_empleado` int(11) NOT NULL AUTO_INCREMENT,
   `legajo` varchar(20) DEFAULT NULL,
   `cargo` varchar(50) DEFAULT NULL,
   `fecha_alta` date DEFAULT NULL,
-  `id_persona` int(11) DEFAULT NULL
+  `id_persona` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_empleado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -176,8 +187,9 @@ CREATE TABLE `Empleado` (
 --
 
 CREATE TABLE `Estado` (
-  `id_estado` int(11) NOT NULL,
-  `descripcion` varchar(50) DEFAULT NULL
+  `id_estado` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_estado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -187,8 +199,9 @@ CREATE TABLE `Estado` (
 --
 
 CREATE TABLE `estados_pagos` (
-  `id_estados_pagos` int(11) NOT NULL,
-  `descripcion` varchar(50) DEFAULT NULL
+  `id_estados_pagos` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_estados_pagos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -198,8 +211,9 @@ CREATE TABLE `estados_pagos` (
 --
 
 CREATE TABLE `Estado_reparacion` (
-  `id_estado_reparacion` int(11) NOT NULL,
-  `descripcion` varchar(100) DEFAULT NULL
+  `id_estado_reparacion` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_estado_reparacion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -209,11 +223,12 @@ CREATE TABLE `Estado_reparacion` (
 --
 
 CREATE TABLE `Factura` (
-  `id_factura` int(11) NOT NULL,
+  `id_factura` int(11) NOT NULL AUTO_INCREMENT,
   `numeracion` int(11) DEFAULT NULL,
   `fecha_emicion` date DEFAULT NULL,
   `id_tipos_facturas` int(11) DEFAULT NULL,
-  `id_estados_pagos` int(11) DEFAULT NULL
+  `id_estados_pagos` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_factura`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -223,11 +238,12 @@ CREATE TABLE `Factura` (
 --
 
 CREATE TABLE `Facturas_pagos` (
-  `id_facturas_pagos` int(11) NOT NULL,
+  `id_facturas_pagos` int(11) NOT NULL AUTO_INCREMENT,
   `valor_porcentaje` int(11) DEFAULT NULL,
   `fecha_pago` date DEFAULT NULL,
   `id_factura` int(11) DEFAULT NULL,
-  `id_tipos_pagos` int(11) DEFAULT NULL
+  `id_tipos_pagos` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_facturas_pagos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -237,9 +253,10 @@ CREATE TABLE `Facturas_pagos` (
 --
 
 CREATE TABLE `Factura_Detalle` (
-  `id_factura_detalle` int(11) NOT NULL,
+  `id_factura_detalle` int(11) NOT NULL AUTO_INCREMENT,
   `id_factura` int(11) DEFAULT NULL,
-  `id_detalle_venta` int(11) DEFAULT NULL
+  `id_detalle_venta` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_factura_detalle`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -249,10 +266,11 @@ CREATE TABLE `Factura_Detalle` (
 --
 
 CREATE TABLE `Factura_impuestos` (
-  `id_factura_impuesto` int(11) NOT NULL,
+  `id_factura_impuesto` int(11) NOT NULL AUTO_INCREMENT,
   `valor_porcentaje` int(11) DEFAULT NULL,
   `id_factura` int(11) DEFAULT NULL,
-  `id_tipos_impositivos` int(11) DEFAULT NULL
+  `id_tipos_impositivos` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_factura_impuesto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -262,8 +280,9 @@ CREATE TABLE `Factura_impuestos` (
 --
 
 CREATE TABLE `Local` (
-  `id_local` int(11) NOT NULL,
-  `descripcion` varchar(100) DEFAULT NULL
+  `id_local` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) DEFAULT NULL,
+	PRIMARY KEY (`id_local`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -273,9 +292,10 @@ CREATE TABLE `Local` (
 --
 
 CREATE TABLE `Localidad` (
-  `id_localidad` int(11) NOT NULL,
+  `id_localidad` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(50) DEFAULT NULL,
-  `id_provincia` int(11) DEFAULT NULL
+  `id_provincia` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_localidad`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -285,8 +305,9 @@ CREATE TABLE `Localidad` (
 --
 
 CREATE TABLE `Marca` (
-  `id_marca` int(11) NOT NULL,
-  `descripcion` varchar(50) DEFAULT NULL
+  `id_marca` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_marca`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -296,8 +317,9 @@ CREATE TABLE `Marca` (
 --
 
 CREATE TABLE `Marca_dispositivos` (
-  `id_marca_dispositivos` int(11) NOT NULL,
-  `descripcion` varchar(100) DEFAULT NULL
+  `id_marca_dispositivos` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_marca_dispositivos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -307,9 +329,10 @@ CREATE TABLE `Marca_dispositivos` (
 --
 
 CREATE TABLE `Modelo_dispositivos` (
-  `id_modelo_dispositivos` int(11) NOT NULL,
+  `id_modelo_dispositivos` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(10) DEFAULT NULL,
-  `id_marca_dispositivos` int(11) NOT NULL
+  `id_marca_dispositivos` int(11) NOT NULL,
+  PRIMARY KEY (`id_modelo_dispositivos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -319,13 +342,14 @@ CREATE TABLE `Modelo_dispositivos` (
 --
 
 CREATE TABLE `Modulos` (
-  `id_modulo` int(11) NOT NULL,
+  `id_modulo` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(100) DEFAULT NULL,
   `directorio` varchar(45) DEFAULT NULL,
   `orden` int(11) DEFAULT NULL,
   `nivel` int(11) DEFAULT NULL,
   `icono` varchar(200) DEFAULT NULL,
-  `hijoDe` int(11) DEFAULT NULL
+  `hijoDe` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_modulo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -335,8 +359,9 @@ CREATE TABLE `Modulos` (
 --
 
 CREATE TABLE `Pais` (
-  `id_pais` int(11) NOT NULL,
-  `descripcion` varchar(50) DEFAULT NULL
+  `id_pais` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_pais`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -346,9 +371,10 @@ CREATE TABLE `Pais` (
 --
 
 CREATE TABLE `Perfiles` (
-  `id_perfil` int(11) NOT NULL,
+  `id_perfil` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(100) DEFAULT NULL,
-  `estado` int(11) DEFAULT NULL
+  `estado` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_perfil`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -365,9 +391,10 @@ INSERT INTO `Perfiles` (`id_perfil`, `descripcion`, `estado`) VALUES
 --
 
 CREATE TABLE `Perfil_modulo` (
-  `id_perfil_modulo` int(11) NOT NULL,
+  `id_perfil_modulo` int(11) NOT NULL AUTO_INCREMENT,
   `id_perfil` int(11) DEFAULT NULL,
-  `id_modulo` int(11) DEFAULT NULL
+  `id_modulo` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_perfil_modulo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -377,7 +404,7 @@ CREATE TABLE `Perfil_modulo` (
 --
 
 CREATE TABLE `Personas` (
-  `id_persona` int(11) NOT NULL,
+  `id_persona` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) DEFAULT NULL,
   `apellido` varchar(50) DEFAULT NULL,
   `dni` int(11) DEFAULT NULL,
@@ -385,7 +412,8 @@ CREATE TABLE `Personas` (
   `cuil/cuit` int(11) DEFAULT NULL,
   `estado` int(11) DEFAULT NULL,
   `id_tipo_documento` int(11) DEFAULT NULL,
-  `id_sexo` int(11) DEFAULT NULL
+  `id_sexo` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_persona`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -402,9 +430,10 @@ INSERT INTO `Personas` (`id_persona`, `nombre`, `apellido`, `dni`, `fecha_nacimi
 --
 
 CREATE TABLE `Personas_Domicilios` (
-  `id_persona_domicilio` int(11) NOT NULL,
+  `id_persona_domicilio` int(11) NOT NULL AUTO_INCREMENT,
   `id_persona` int(11) DEFAULT NULL,
-  `id_domicilio` int(11) DEFAULT NULL
+  `id_domicilio` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_persona_domicilio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -414,7 +443,7 @@ CREATE TABLE `Personas_Domicilios` (
 --
 
 CREATE TABLE `Productos` (
-  `id_producto` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) DEFAULT NULL,
   `descripcion` varchar(100) DEFAULT NULL,
   `precio_venta` float(8,0) DEFAULT NULL,
@@ -426,7 +455,8 @@ CREATE TABLE `Productos` (
   `stock_minimo` int(11) DEFAULT NULL,
   `codigo_barras` varchar(20) DEFAULT NULL,
   `id_marca` int(11) DEFAULT NULL,
-  `id_rubro` int(11) DEFAULT NULL
+  `id_rubro` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_producto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -436,10 +466,11 @@ CREATE TABLE `Productos` (
 --
 
 CREATE TABLE `Producto_imagen` (
-  `id_producto_imagen` int(11) NOT NULL,
+  `id_producto_imagen` int(11) NOT NULL AUTO_INCREMENT,
   `imagen` varchar(100) DEFAULT NULL,
   `descripcion` varchar(100) DEFAULT NULL,
-  `id_producto` int(11) DEFAULT NULL
+  `id_producto` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_producto_imagen`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -449,10 +480,11 @@ CREATE TABLE `Producto_imagen` (
 --
 
 CREATE TABLE `Proveedor` (
-  `id_proveedor` int(11) NOT NULL,
+  `id_proveedor` int(11) NOT NULL AUTO_INCREMENT,
   `Descripcion` varchar(100) DEFAULT NULL,
   `Nombre` char(50) DEFAULT NULL,
-  `Cuit` int(11) DEFAULT NULL
+  `Cuit` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_proveedor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -462,10 +494,11 @@ CREATE TABLE `Proveedor` (
 --
 
 CREATE TABLE `Proveedor_Contacto` (
-  `id_proveedor_contacto` int(11) NOT NULL,
+  `id_proveedor_contacto` int(11) NOT NULL AUTO_INCREMENT,
   `valor` varchar(70) DEFAULT NULL,
   `id_proveedor` int(11) DEFAULT NULL,
-  `id_tipo_contacto` int(11) DEFAULT NULL
+  `id_tipo_contacto` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_proveedor_contacto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -477,7 +510,8 @@ CREATE TABLE `Proveedor_Contacto` (
 CREATE TABLE `Provincia` (
   `id_provincia` int(11) NOT NULL,
   `descripcion` varchar(50) DEFAULT NULL,
-  `id_pais` int(11) DEFAULT NULL
+  `id_pais` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_provincia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -487,7 +521,7 @@ CREATE TABLE `Provincia` (
 --
 
 CREATE TABLE `Reparaciones` (
-  `id_reparacion` int(11) NOT NULL,
+  `id_reparacion` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(100) DEFAULT NULL,
   `costo` float(8,0) DEFAULT NULL,
   `memoria_sd` int(11) DEFAULT NULL,
@@ -501,7 +535,8 @@ CREATE TABLE `Reparaciones` (
   `id_cliente` int(11) DEFAULT NULL,
   `id_estado_reparacion` int(11) DEFAULT NULL,
   `id_local` int(11) DEFAULT NULL,
-  `id_modelo_dispositivos` int(11) DEFAULT NULL
+  `id_modelo_dispositivos` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_reparacion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -511,8 +546,9 @@ CREATE TABLE `Reparaciones` (
 --
 
 CREATE TABLE `rubro` (
-  `id_rubro` int(11) NOT NULL,
-  `descripcion` char(60) DEFAULT NULL
+  `id_rubro` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` char(60) DEFAULT NULL,
+  PRIMARY KEY (`id_rubro`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -523,7 +559,8 @@ CREATE TABLE `rubro` (
 
 CREATE TABLE `Sexo` (
   `id_sexo` int(11) NOT NULL,
-  `descripcion` varchar(50) DEFAULT NULL
+  `descripcion` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_sexo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -541,9 +578,10 @@ INSERT INTO `Sexo` (`id_sexo`, `descripcion`) VALUES
 --
 
 CREATE TABLE `tipos_facturas` (
-  `id_tipos_facturas` int(11) NOT NULL,
+  `id_tipos_facturas` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(50) DEFAULT NULL,
-  `estado` int(11) DEFAULT NULL
+  `estado` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_tipos_facturas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -553,10 +591,11 @@ CREATE TABLE `tipos_facturas` (
 --
 
 CREATE TABLE `tipos_impositivos` (
-  `id_tipos_impositivos` int(11) NOT NULL,
+  `id_tipos_impositivos` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(50) DEFAULT NULL,
   `valor_porcentaje` int(11) DEFAULT NULL,
-  `estado` int(11) DEFAULT NULL
+  `estado` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_tipos_impositivos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -566,10 +605,11 @@ CREATE TABLE `tipos_impositivos` (
 --
 
 CREATE TABLE `tipos_pagos` (
-  `id_tipos_pagos` int(11) NOT NULL,
+  `id_tipos_pagos` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` char(50) DEFAULT NULL,
   `valor_porcentaje` int(11) DEFAULT NULL,
-  `estado` int(11) DEFAULT NULL
+  `estado` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_tipos_pagos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -579,8 +619,9 @@ CREATE TABLE `tipos_pagos` (
 --
 
 CREATE TABLE `Tipo_Contacto` (
-  `id_tipo_contacto` int(11) NOT NULL,
-  `descripcion` char(50) DEFAULT NULL
+  `id_tipo_contacto` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` char(50) DEFAULT NULL,
+  PRIMARY KEY (`id_tipo_contacto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -590,8 +631,9 @@ CREATE TABLE `Tipo_Contacto` (
 --
 
 CREATE TABLE `Tipo_documento` (
-  `id_tipo_documento` int(11) NOT NULL,
-  `descripcion` varchar(50) DEFAULT NULL
+  `id_tipo_documento` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_tipo_documento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -608,12 +650,13 @@ INSERT INTO `Tipo_documento` (`id_tipo_documento`, `descripcion`) VALUES
 --
 
 CREATE TABLE `Usuarios` (
-  `id_usuario` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(8) DEFAULT NULL,
   `password` varchar(8) DEFAULT NULL,
   `imagen` varchar(500) DEFAULT NULL,
   `id_persona` int(11) DEFAULT NULL,
-  `id_perfil` int(11) DEFAULT NULL
+  `id_perfil` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -630,11 +673,12 @@ INSERT INTO `Usuarios` (`id_usuario`, `username`, `password`, `imagen`, `id_pers
 --
 
 CREATE TABLE `venta` (
-  `id_venta` int(11) NOT NULL,
+  `id_venta` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` date DEFAULT NULL,
   `id_cliente` int(11) DEFAULT NULL,
   `id_empleado` int(11) DEFAULT NULL,
-  `id_estado` int(11) DEFAULT NULL
+  `id_estado` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_venta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -645,21 +689,18 @@ CREATE TABLE `venta` (
 -- Indices de la tabla `Barrios`
 --
 ALTER TABLE `Barrios`
-  ADD PRIMARY KEY (`id_barrios`),
   ADD KEY `Ref117` (`id_localidad`);
 
 --
 -- Indices de la tabla `Cliente`
 --
 ALTER TABLE `Cliente`
-  ADD PRIMARY KEY (`id_cliente`),
   ADD KEY `Ref112` (`id_persona`);
 
 --
 -- Indices de la tabla `Compra`
 --
 ALTER TABLE `Compra`
-  ADD PRIMARY KEY (`id_compra`),
   ADD KEY `Ref1824` (`id_empleado`),
   ADD KEY `Ref2036` (`id_proveedor`),
   ADD KEY `Ref4949` (`id_estado`);
@@ -668,7 +709,6 @@ ALTER TABLE `Compra`
 -- Indices de la tabla `Contactos`
 --
 ALTER TABLE `Contactos`
-  ADD PRIMARY KEY (`id_contactos`),
   ADD KEY `Ref135` (`id_persona`),
   ADD KEY `Ref52` (`id_tipo_contacto`);
 
@@ -676,7 +716,6 @@ ALTER TABLE `Contactos`
 -- Indices de la tabla `Detalle_compra`
 --
 ALTER TABLE `Detalle_compra`
-  ADD PRIMARY KEY (`id_detalle_compra`),
   ADD KEY `Ref1917` (`id_compra`),
   ADD KEY `Ref2418` (`id_producto`);
 
@@ -684,7 +723,6 @@ ALTER TABLE `Detalle_compra`
 -- Indices de la tabla `Detalle_Reparacion`
 --
 ALTER TABLE `Detalle_Reparacion`
-  ADD PRIMARY KEY (`id_detalle_reparacion`),
   ADD KEY `Ref5058` (`id_factura`),
   ADD KEY `Ref3059` (`id_reparacion`);
 
@@ -692,7 +730,6 @@ ALTER TABLE `Detalle_Reparacion`
 -- Indices de la tabla `Detalle_ventas`
 --
 ALTER TABLE `Detalle_ventas`
-  ADD PRIMARY KEY (`id_detalle_venta`),
   ADD KEY `Ref2625` (`id_venta`),
   ADD KEY `Ref2426` (`id_producto`);
 
@@ -700,53 +737,30 @@ ALTER TABLE `Detalle_ventas`
 -- Indices de la tabla `Direccion`
 --
 ALTER TABLE `Direccion`
-  ADD PRIMARY KEY (`id_direccion`),
   ADD KEY `Ref2060` (`id_proveedor`);
 
 --
 -- Indices de la tabla `Dispositivo_imagen`
 --
 ALTER TABLE `Dispositivo_imagen`
-  ADD PRIMARY KEY (`id_dispositivo_imagen`),
   ADD KEY `Ref3043` (`id_reparacion`);
 
 --
 -- Indices de la tabla `Domicilios`
 --
 ALTER TABLE `Domicilios`
-  ADD PRIMARY KEY (`id_domicilio`),
   ADD KEY `Ref128` (`id_barrios`);
 
 --
 -- Indices de la tabla `Empleado`
 --
 ALTER TABLE `Empleado`
-  ADD PRIMARY KEY (`id_empleado`),
   ADD KEY `Ref113` (`id_persona`);
-
---
--- Indices de la tabla `Estado`
---
-ALTER TABLE `Estado`
-  ADD PRIMARY KEY (`id_estado`);
-
---
--- Indices de la tabla `estados_pagos`
---
-ALTER TABLE `estados_pagos`
-  ADD PRIMARY KEY (`id_estados_pagos`);
-
---
--- Indices de la tabla `Estado_reparacion`
---
-ALTER TABLE `Estado_reparacion`
-  ADD PRIMARY KEY (`id_estado_reparacion`);
 
 --
 -- Indices de la tabla `Factura`
 --
 ALTER TABLE `Factura`
-  ADD PRIMARY KEY (`id_factura`),
   ADD KEY `Ref5550` (`id_tipos_facturas`),
   ADD KEY `Ref5651` (`id_estados_pagos`);
 
@@ -754,7 +768,6 @@ ALTER TABLE `Factura`
 -- Indices de la tabla `Facturas_pagos`
 --
 ALTER TABLE `Facturas_pagos`
-  ADD PRIMARY KEY (`id_facturas_pagos`),
   ADD KEY `Ref5054` (`id_factura`),
   ADD KEY `Ref5455` (`id_tipos_pagos`);
 
@@ -762,7 +775,6 @@ ALTER TABLE `Facturas_pagos`
 -- Indices de la tabla `Factura_Detalle`
 --
 ALTER TABLE `Factura_Detalle`
-  ADD PRIMARY KEY (`id_factura_detalle`),
   ADD KEY `Ref5056` (`id_factura`),
   ADD KEY `Ref2757` (`id_detalle_venta`);
 
@@ -770,65 +782,26 @@ ALTER TABLE `Factura_Detalle`
 -- Indices de la tabla `Factura_impuestos`
 --
 ALTER TABLE `Factura_impuestos`
-  ADD PRIMARY KEY (`id_factura_impuesto`),
   ADD KEY `Ref5052` (`id_factura`),
   ADD KEY `Ref5753` (`id_tipos_impositivos`);
-
---
--- Indices de la tabla `Local`
---
-ALTER TABLE `Local`
-  ADD PRIMARY KEY (`id_local`);
 
 --
 -- Indices de la tabla `Localidad`
 --
 ALTER TABLE `Localidad`
-  ADD PRIMARY KEY (`id_localidad`),
   ADD KEY `Ref106` (`id_provincia`);
 
---
--- Indices de la tabla `Marca`
---
-ALTER TABLE `Marca`
-  ADD PRIMARY KEY (`id_marca`);
-
---
--- Indices de la tabla `Marca_dispositivos`
---
-ALTER TABLE `Marca_dispositivos`
-  ADD PRIMARY KEY (`id_marca_dispositivos`);
 
 --
 -- Indices de la tabla `Modelo_dispositivos`
 --
 ALTER TABLE `Modelo_dispositivos`
-  ADD PRIMARY KEY (`id_modelo_dispositivos`),
   ADD KEY `Ref4140` (`id_marca_dispositivos`);
-
---
--- Indices de la tabla `Modulos`
---
-ALTER TABLE `Modulos`
-  ADD PRIMARY KEY (`id_modulo`);
-
---
--- Indices de la tabla `Pais`
---
-ALTER TABLE `Pais`
-  ADD PRIMARY KEY (`id_pais`);
-
---
--- Indices de la tabla `Perfiles`
---
-ALTER TABLE `Perfiles`
-  ADD PRIMARY KEY (`id_perfil`);
 
 --
 -- Indices de la tabla `Perfil_modulo`
 --
 ALTER TABLE `Perfil_modulo`
-  ADD PRIMARY KEY (`id_perfil_modulo`),
   ADD KEY `Ref4544` (`id_perfil`),
   ADD KEY `Ref4645` (`id_modulo`);
 
@@ -836,7 +809,6 @@ ALTER TABLE `Perfil_modulo`
 -- Indices de la tabla `Personas`
 --
 ALTER TABLE `Personas`
-  ADD PRIMARY KEY (`id_persona`),
   ADD KEY `Ref4847` (`id_sexo`),
   ADD KEY `Ref21` (`id_tipo_documento`);
 
@@ -844,7 +816,6 @@ ALTER TABLE `Personas`
 -- Indices de la tabla `Personas_Domicilios`
 --
 ALTER TABLE `Personas_Domicilios`
-  ADD PRIMARY KEY (`id_persona_domicilio`),
   ADD KEY `Ref19` (`id_persona`),
   ADD KEY `Ref1310` (`id_domicilio`);
 
@@ -852,7 +823,6 @@ ALTER TABLE `Personas_Domicilios`
 -- Indices de la tabla `Productos`
 --
 ALTER TABLE `Productos`
-  ADD PRIMARY KEY (`id_producto`),
   ADD KEY `Ref3938` (`id_marca`),
   ADD KEY `Ref4039` (`id_rubro`);
 
@@ -860,20 +830,12 @@ ALTER TABLE `Productos`
 -- Indices de la tabla `Producto_imagen`
 --
 ALTER TABLE `Producto_imagen`
-  ADD PRIMARY KEY (`id_producto_imagen`),
   ADD KEY `Ref2442` (`id_producto`);
-
---
--- Indices de la tabla `Proveedor`
---
-ALTER TABLE `Proveedor`
-  ADD PRIMARY KEY (`id_proveedor`);
 
 --
 -- Indices de la tabla `Proveedor_Contacto`
 --
 ALTER TABLE `Proveedor_Contacto`
-  ADD PRIMARY KEY (`id_proveedor_contacto`),
   ADD KEY `Ref2061` (`id_proveedor`),
   ADD KEY `Ref562` (`id_tipo_contacto`);
 
@@ -881,67 +843,23 @@ ALTER TABLE `Proveedor_Contacto`
 -- Indices de la tabla `Provincia`
 --
 ALTER TABLE `Provincia`
-  ADD PRIMARY KEY (`id_provincia`),
   ADD KEY `Ref95` (`id_pais`);
 
 --
 -- Indices de la tabla `Reparaciones`
 --
 ALTER TABLE `Reparaciones`
-  ADD PRIMARY KEY (`id_reparacion`),
   ADD KEY `Ref1828` (`id_empleado`),
   ADD KEY `Ref330` (`id_cliente`),
   ADD KEY `Ref3131` (`id_estado_reparacion`),
   ADD KEY `Ref3232` (`id_local`),
   ADD KEY `Ref4241` (`id_modelo_dispositivos`);
 
---
--- Indices de la tabla `rubro`
---
-ALTER TABLE `rubro`
-  ADD PRIMARY KEY (`id_rubro`);
-
---
--- Indices de la tabla `Sexo`
---
-ALTER TABLE `Sexo`
-  ADD PRIMARY KEY (`id_sexo`);
-
---
--- Indices de la tabla `tipos_facturas`
---
-ALTER TABLE `tipos_facturas`
-  ADD PRIMARY KEY (`id_tipos_facturas`);
-
---
--- Indices de la tabla `tipos_impositivos`
---
-ALTER TABLE `tipos_impositivos`
-  ADD PRIMARY KEY (`id_tipos_impositivos`);
-
---
--- Indices de la tabla `tipos_pagos`
---
-ALTER TABLE `tipos_pagos`
-  ADD PRIMARY KEY (`id_tipos_pagos`);
-
---
--- Indices de la tabla `Tipo_Contacto`
---
-ALTER TABLE `Tipo_Contacto`
-  ADD PRIMARY KEY (`id_tipo_contacto`);
-
---
--- Indices de la tabla `Tipo_documento`
---
-ALTER TABLE `Tipo_documento`
-  ADD PRIMARY KEY (`id_tipo_documento`);
 
 --
 -- Indices de la tabla `Usuarios`
 --
 ALTER TABLE `Usuarios`
-  ADD PRIMARY KEY (`id_usuario`),
   ADD KEY `Ref127` (`id_persona`),
   ADD KEY `Ref4546` (`id_perfil`);
 
@@ -949,7 +867,6 @@ ALTER TABLE `Usuarios`
 -- Indices de la tabla `venta`
 --
 ALTER TABLE `venta`
-  ADD PRIMARY KEY (`id_venta`),
   ADD KEY `Ref321` (`id_cliente`),
   ADD KEY `Ref1823` (`id_empleado`),
   ADD KEY `Ref4948` (`id_estado`);
