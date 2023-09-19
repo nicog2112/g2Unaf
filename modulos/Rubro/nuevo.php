@@ -8,7 +8,7 @@ include_once "../../db/ConexionDB/base_de_datos.php";
 $descripcion = $_POST["descripcion"];
 
 
-$sentencia = $base_de_datos->prepare("INSERT INTO categorias ( descripcion ) VALUES (?);");
+$sentencia = $base_de_datos->prepare("INSERT INTO rubro ( descripcion ) VALUES (?);");
 $resultado = $sentencia->execute([ $descripcion ]);
 
 if($resultado === TRUE){

@@ -1,7 +1,7 @@
 <?php
 $contraseña = "";
 $usuario = "root";
-$nombre_base_de_datos = "ventas_sys";
+$nombre_base_de_datos = "g2Accesorios";
 try{
 	$base_de_datos = new PDO('mysql:host=localhost;dbname=' . $nombre_base_de_datos, $usuario, $contraseña);
 	 $base_de_datos->query("set names utf8;");
