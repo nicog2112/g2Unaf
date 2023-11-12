@@ -12,7 +12,7 @@ include_once "../../db/ConexionDB/base_de_datos.php";
 
 try {
     # Preparar la consulta - el siguno de ptregunta se le pasa la descripcion mas abajo
-    $sentencia = $base_de_datos->prepare("INSERT INTO rubro (descripcion) VALUES (?);");
+    $sentencia = $base_de_datos->prepare("INSERT INTO Marca (descripcion) VALUES (?);");
 
     # Ejecutar la consulta - Aca se le manda a la sentencia el parametro descripcion que reemplazar al signo de pregunta.
     $resultado = $sentencia->execute([$descripcion]);

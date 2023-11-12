@@ -1,28 +1,32 @@
-
 <?php
-$usuario=$_POST['usuario'];
-$contraseña=$_POST['contraseña'];
-session_start();
 
-$conex=mysqli_connect("localhost","root","","g2Accesorios");
-$consulta="SELECT * FROM Usuarios where username='$usuario' and password='$contraseña'";
+    // Obtén los datos del formulario
+    $usuario=$_POST['usuario'];
+    $contrasenia=$_POST['contrasenia'];
+    session_start();
 
-$resultado=mysqli_query($conex,$consulta);
+    // Conexión a la base de datos (reemplaza con tus propios datos)
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "g2Accesorios";
 
-$neta=mysqli_num_rows($resultado);
+    // Completa el código para verificar la autenticación
+    // Realiza una consulta en la base de datos y verifica si las credenciales son válidas
 
-if($neta == 1)
-{ 
-    header("location: ../../Inicio.php");
-}else
-if($neta == 2){ 
-    header("location: login.php?validacion=2");
-}
-else{
-    ?>
-    <?php
-     header("location: login.php?validacion=1");
+    $conn = new mysqli($servername, $username, $password, $dbname);
     
-}
-mysqli_free_result($resultado);
-mysqli_close($conex);
+    if ($conn->connect_error) {
+        die("Error en la conexión a la base de datos: " . $conn->connect_error);
+    }
+    
+    $sql="SELECT * FROM Usuarios where username='$usuario' and password='$contrasenia'";
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+        echo "success";
+    } else {
+        echo "Inicio de sesión fallido. Verifica tus credenciales.";
+    }
+    
+    $conn->close();
