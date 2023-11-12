@@ -20,7 +20,7 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="/G2Unaf/Inicio.php">Inicio</a></li>
-					<li><a href="/G2Unaf/modulos/Productos/listar.php">Productos</a></li>
+					<li><a href="/G2Unaf/modulos/Producto/listar.php">Productos</a></li>
 					<li><a href="/G2Unaf/modulos/Ventas/ventas.php">Ventas</a></li>
 					<li><a href="/G2Unaf/modulos/Rubro/listar.php">Rubros</a></li>
 					<li><a href="/G2Unaf/modulos/Login/login.php">Cerrar Sesion</a></li>
