@@ -20,4 +20,3 @@ if($resultado === TRUE){
 	exit;
 }
 else echo "Algo salió mal. Por favor verifica que la tabla exista, así como el ID del Rubro";
-?>

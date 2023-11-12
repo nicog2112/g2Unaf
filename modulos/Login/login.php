@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <script>
-        $(document).ready(function () {
-            $("#loginForm").submit(function (event) {
+        $(document).ready(function() {
+            $("#loginForm").submit(function(event) {
                 event.preventDefault();
 
                 var usuario = $("#usuario").val();
@@ -25,35 +25,37 @@
                     type: "POST",
                     url: "iniciar_sesion.php",
                     data: data,
-                    success: function (response) {
+                    success: function(response) {
                         if (response === "success") {
                             $("#mensajeSuccess").html("Inicio de Sesión Exitoso!");
                             $("#mensajeSuccess").show(); // Mostrar mensaje de éxito
-                            $("#mensajeError").hide();  // Ocultar mensaje de error
-                            window.location.href="../../Inicio.php";
+                            $("#mensajeError").hide(); // Ocultar mensaje de error
+                            window.location.href = "../../Inicio.php";
                         } else {
                             $("#mensajeError").html("Usuario o contraseña incorrectos.");
                             $("#mensajeError").show(); // Mostrar mensaje de error
-                            $("#mensajeSuccess").hide();  // Ocultar mensaje de éxito
+                            $("#mensajeSuccess").hide(); // Ocultar mensaje de éxito
                         }
                     }
                 });
             });
         });
-
     </script>
 </head>
 
 <body>
     <div class="main">
+        <label>Iniciar Sesión</label>
         <div class="login">
             <div class='correcto' id="mensajeSuccess"></div>
             <div class='error' id="mensajeError"></div>
             <form id="loginForm">
-                <label>Iniciar Sesión</label>
-                <input type="text" name="usuario" id="usuario" placeholder="Usuario" required>
-                <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña" required>
-                <button type="submit">Iniciar Sesión</button>
+                <div class='divForm'>
+                    <input class='primerInput' type="text" name="usuario" id="usuario" placeholder="Usuario" required>
+                    <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña" required>
+                    <button type="submit">Iniciar Sesión</button>
+                </div>
+
             </form>
         </div>
     </div>

@@ -9,4 +9,3 @@ if($resultado === TRUE){
 	exit;
 }
 else echo "Algo salió mal";
-?>

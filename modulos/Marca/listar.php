@@ -12,7 +12,7 @@ $marcas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 		</div>
 		<br>
 		<table class="table table-bordered">
-			<thead>
+			<thead class="table-dark">
 				<tr>
 					<th>ID</th>
 					<th>Descripción</th>
@@ -25,7 +25,7 @@ $marcas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 				<tr>
 					<td><?php echo $marca->id_marca ?></td>
 					<td><?php echo $marca->descripcion ?></td>
-					<td><a class="btn btn-warning" href="<?php echo "editar.php?id=" . $marca->id_marca?>"><i class="fa fa-edit"></i></a></td>
+					<td><a class="btn btn-primary" href="<?php echo "editar.php?id=" . $marca->id_marca?>"><i class="fa fa-edit"></i></a></td>
 					<td><a class="btn btn-danger" href="<?php echo "eliminar.php?id=" . $marca->id_marca?>"><i class="fa fa-trash"></i></a></td>
 				</tr>
 				<?php } ?>

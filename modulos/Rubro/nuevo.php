@@ -34,4 +34,3 @@ try {
 
 # Incluir el pie de página
 include_once "../../pie.php";
-?>
