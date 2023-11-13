@@ -12,3 +12,4 @@ try{
 	echo "Ocurrió algo con la base de datos: " . $e->getMessage();
 }
 ?>
+

@@ -1,7 +1,7 @@
 <?php include_once "../../encabezado.php" ?>
 
 <div class="col-xs-12">
-	<h1>Nuevo Rubro</h1>
+	<h1>Nueva Marca</h1>
 	<form method="post" action="nuevo.php" onsubmit="return validarFormulario()">
 
 		<label for="descripcion">Descripción:</label>
