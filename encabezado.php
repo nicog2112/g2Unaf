@@ -7,8 +7,10 @@
 	<title>Sistema de Ventas</title>
 	
 	<link rel="stylesheet" href="/G2Unaf/css/fontawesome-all.min.css">
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"/> -->
 	<link rel="stylesheet" href="/G2Unaf/css/bootstrap.css">
 	<link rel="stylesheet" href="/G2Unaf/css/estilo.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src="/G2Unaf/js/validarRubro.js"></script>
 </head>
 <body>
