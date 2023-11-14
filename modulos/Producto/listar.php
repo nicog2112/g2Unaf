@@ -6,7 +6,7 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
 <script>
 	function eliminar(){
-    let respuesta=confirm("¿ESTÁS SEGURO QUE DESEAS ELIMINAR EL REGISTRO?");
+    let respuesta=confirm("¿ESTÁS SEGURO QUE DESEA ELIMINAR EL REGISTRO?");
     return respuesta;
 }
 </script>
@@ -18,7 +18,7 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 		</div>
 		<br>
 		<table class="table table-bordered">
-			<thead>
+			<thead class="table-dark" >
 				<tr>
 					<th>ID</th>
 					<th>Nombre</th>
@@ -53,7 +53,7 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 					<td><?php echo $producto->codigo_barras ?></td>
 					<td><?php echo $producto->id_marca ?></td>
 					<td><?php echo $producto->id_rubro ?></td>
-					<td><a class="btn btn-warning" href="<?php echo "editar.php?id=" . $producto->id_producto?>"><i class="fa fa-edit"></i></a></td>
+					<td><a class="btn btn-primary" href="<?php echo "editar.php?id=" . $producto->id_producto?>"><i class="fa fa-edit"></i></a></td>
 					<td><a onclick="return eliminar()" class="btn btn-danger" href="<?php echo "eliminar.php?id=" . $producto->id_producto?>"><i class="fa fa-trash"></i></a></td>
 				</tr>
 				<?php } ?>

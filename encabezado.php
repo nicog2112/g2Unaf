@@ -80,8 +80,8 @@ define('BASE_URL', '/g2Unaf/');
                         <i class='bx bxs-purchase-tag-alt nav_icon'></i>
                         <span class="nav_name">Marcas</span>
                     </a>
-                    <a href="#" id="Marcas" class="nav_link" data-item="Marcas" data-destino="<?php echo BASE_URL; ?>modulos/Producto/listar.php">
-                        <i class='bx bxs-purchase-tag-alt nav_icon'></i>
+                    <a href="#" id="Marcas" class="nav_link" data-item="Producto" data-destino="<?php echo BASE_URL; ?>modulos/Producto/listar.php">
+                        <i class='bx bx-spreadsheet nav_icon'></i>
                         <span class="nav_name">Productos</span>
                     </a>
 

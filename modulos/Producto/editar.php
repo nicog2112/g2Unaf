@@ -151,7 +151,11 @@ try {
                 <textarea id="id_rubro" name="id_rubro" cols="30" rows="5" class="form-control"></textarea>
                 <span id="errorRubro" class="text-danger"></span> -->
 
-                <br><br><input class="btn btn-info" type="submit" value="Guardar">
+                <br>  
+                <div class="col-12">
+                    <a href="javascript:history.go(-1);" class="btn btn-danger">Cancelar</a>
+                    <input class="btn btn-success" type="submit" value="Guardar">
+                </div>
             </form>
         </div>
     </div>
