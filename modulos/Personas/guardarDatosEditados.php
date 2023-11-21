@@ -6,8 +6,8 @@ if (!isset($_POST["id_persona"], $_POST["nombre"], $_POST["apellido"], $_POST["d
 }
 
 # Validación de datos
-// $id_persona = $_POST["id_persona"];
-// $id_usuario = $_POST["id_usuario"];
+$id_persona = $_POST["id_persona"];
+
 
 $nombre = $_POST["nombre"];
 $apellido = $_POST["apellido"];

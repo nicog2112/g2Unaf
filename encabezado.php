@@ -89,7 +89,7 @@ define('BASE_URL', '/g2Unaf/');
                         <span class="nav_name">Tipo de contacto</span>
                     </a>
                     <a href="#" id="persona" class="nav_link" data-item="persona" data-destino="<?php echo BASE_URL; ?>modulos/Personas/listar.php">
-                        <i class='bx bxs-contact nav_icon'></i>
+                        <i class='bx bxs-user-rectangle nav_icon'></i>
                         <span class="nav_name">Personas</span>
                     </a>
 

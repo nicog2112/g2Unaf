@@ -1,7 +1,7 @@
 <?php
 # Salir si alguno de los datos no está presente
 if (!isset($_POST["nombre"], $_POST["apellido"], $_POST["dni"], $_POST["fecha_nacimiento"],
-    $_POST["cuil"], $_POST["sexo"], $_POST["tipo_documento"], $_POST["estado"])) {
+    $_POST["cuil"], $_POST["estado"], $_POST["sexo"], $_POST["tipo_documento"])) {
     exit("Datos incompletos");
 }
 
@@ -11,10 +11,11 @@ $apellido = $_POST["apellido"];
 $dni = $_POST["dni"];
 $fecha_nacimiento = $_POST["fecha_nacimiento"];
 $cuil = $_POST["cuil"];
+$estado = $_POST["estado"];
 $sexo = $_POST["sexo"];
 $tipo_documento = $_POST["tipo_documento"];
 
-$estado = $_POST["estado"];
+
 
 # Si todo va bien, se ejecuta esta parte del código...
 include_once "../../db/ConexionDB/base_de_datos.php";
@@ -32,10 +33,6 @@ try {
     # Obtener el ID de la persona recién insertada
     $id_persona = $base_de_datos->lastInsertId();
 
-
-    if (!$resultadoUsuario) {
-        throw new Exception("Error al insertar en la tabla Usuarios");
-    }
 
     # Confirmar la transacción
     $base_de_datos->commit();
