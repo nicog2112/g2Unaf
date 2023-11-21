@@ -8,3 +8,4 @@ include_once "db/ConexionDB/base_de_datos.php";
 		
 	</div>
 <?php include_once "pie.php" ?>
+

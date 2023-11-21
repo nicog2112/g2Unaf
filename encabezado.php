@@ -84,6 +84,14 @@ define('BASE_URL', '/g2Unaf/');
                         <i class='bx bx-spreadsheet nav_icon'></i>
                         <span class="nav_name">Productos</span>
                     </a>
+                    <a href="#" id="tipo_contacto" class="nav_link" data-item="tipo_contacto" data-destino="<?php echo BASE_URL; ?>modulos/tipo_contacto/listar.php">
+                        <i class='bx bxs-contact nav_icon'></i>
+                        <span class="nav_name">Tipo de contacto</span>
+                    </a>
+                    <a href="#" id="persona" class="nav_link" data-item="persona" data-destino="<?php echo BASE_URL; ?>modulos/Personas/listar.php">
+                        <i class='bx bxs-contact nav_icon'></i>
+                        <span class="nav_name">Personas</span>
+                    </a>
 
                 </div>
             </div>
