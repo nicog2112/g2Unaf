@@ -33,7 +33,7 @@ $list_tipo_documento = $sentenciaTipoDocumento->fetchAll(PDO::FETCH_OBJ);
 
 <div class="col-xs-12">
 	<h1>Modificar Persona</h1>
-	<form method="post" action="nuevo.php" onsubmit="return validarFormulario()" class="row g-3">
+	<form method="post" action="guardarDatosEditados.php" onsubmit="return validarFormulario()" class="row g-3">
 
 		<!-- Campos para la tabla Persona -->
 		<input type="hidden" name="id_persona" value="<?php echo $personas->id_persona; ?>">
